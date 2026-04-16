@@ -26,7 +26,7 @@ const projectsData = [
     ]}
 ];
 
-// Team data with placeholder image URLs (replace these with actual photos later)
+// Team data with image URLs
 const teamData = [
     { 
         name: "Daires Semwayo", 
@@ -35,8 +35,7 @@ const teamData = [
         experience: "25+ years executive experience in insurance industry", 
         education: "", 
         responsibilities: "Driving innovative construction solutions, expanding Nylex's global footprint with partnerships in Turkey, Dubai, China, South Africa, Mauritius, and the UK",
-        image: "https://images4.imagebam.com/81/ff/d7/ME1C8MEH_o.png",
-        placeholderIcon: "user"
+        image: "https://images4.imagebam.com/81/ff/d7/ME1C8MEH_o.png"
     },
     { 
         name: "Comfort Semwayo", 
@@ -45,8 +44,7 @@ const teamData = [
         experience: "20+ years experience in construction industry", 
         education: "", 
         responsibilities: "Masterfully orchestrates construction nuances, transforming blueprints into realities. Expertise in building design, structural integrity, and project management",
-        image: "https://images4.imagebam.com/49/41/e6/ME1C8MIG_o.png",
-        placeholderIcon: "user"
+        image: "https://images4.imagebam.com/49/41/e6/ME1C8MIG_o.png"
     },
     { 
         name: "Chantelle Kwaramba", 
@@ -55,8 +53,7 @@ const teamData = [
         experience: "Law graduate from University of Essex", 
         education: "LLB Law, University of Essex", 
         responsibilities: "Project budget handling, cash flow forecasting, internal audits, financial reporting, contractual and risk management matters",
-        image: "https://images4.imagebam.com/cd/af/eb/ME1C8MBO_o.png",
-        placeholderIcon: "user"
+        image: "https://images4.imagebam.com/cd/af/eb/ME1C8MBO_o.png"
     },
     { 
         name: "Patrick Matura", 
@@ -65,8 +62,7 @@ const teamData = [
         experience: "14+ years experience across mining, education, accounting, and business development", 
         education: "BA (Hons) Accounting and Finance, University of East London, UK", 
         responsibilities: "Oversees day-to-day management of diverse projects across multiple countries including Malaysia, China, and Zimbabwe",
-        image: "https://images4.imagebam.com/12/16/2a/ME1C8MX4_o.png",
-        placeholderIcon: "user"
+        image: "https://images4.imagebam.com/12/16/2a/ME1C8MX4_o.png"
     }
 ];
 
@@ -239,7 +235,7 @@ function openTeamModal(index) {
     modalContent.innerHTML = `
         <button class="modal-close" onclick="closeTeamModal()"><i data-lucide="x" class="icon-sm"></i></button>
         <div style="text-align:center; margin-bottom:1.5rem;">
-            <div style="width:120px; height:120px; margin:0 auto 1rem; border-radius:50%; overflow:hidden; background:#e5e7eb;">
+            <div style="width:100px; height:100px; margin:0 auto 1rem; border-radius:50%; overflow:hidden; background:#e5e7eb;">
                 <img src="${member.image}" alt="${member.name}" style="width:100%; height:100%; object-fit:cover;" onerror="this.src='https://placehold.co/400x400/1a1a2e/C6A43F?text=${encodeURIComponent(member.name.split(' ')[0])}'">
             </div>
             <h2 style="font-size:1.5rem; font-weight:700;">${member.name}</h2>
@@ -292,13 +288,34 @@ function subscribeNewsletter(e) {
     e.target.reset();
 }
 
-// ==================== MOBILE MENU ====================
-function toggleMobileMenu() { 
-    document.getElementById('mobile-menu').classList.toggle('hidden'); 
+// ==================== MOBILE MENU - FIXED ====================
+function toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenu) {
+        if (mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.style.display = 'flex';
+        } else {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.style.display = 'none';
+        }
+    }
 }
-function closeMobileMenu() { 
-    document.getElementById('mobile-menu').classList.add('hidden'); 
+
+function closeMobileMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenu) {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.style.display = 'none';
+    }
 }
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll('#mobile-menu a, #mobile-menu button').forEach(element => {
+    element.addEventListener('click', () => {
+        closeMobileMenu();
+    });
+});
 
 // ==================== EXPORTS ====================
 window.openProjectModal = openProjectModal;
