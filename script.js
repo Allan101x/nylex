@@ -124,7 +124,6 @@ function renderTeam() {
             </div>
             <h3>${member.name}</h3>
             <p class="team-title">${member.title}</p>
-            <p class="team-desc">${member.shares}</p>
         </div>
     `).join('');
     refreshIcons();
