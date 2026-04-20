@@ -266,14 +266,47 @@ function closeQuoteModal() {
 // ==================== FORM HANDLERS ====================
 function submitContactForm(e) {
     e.preventDefault();
-    alert('Thank you! We will respond within 24 hours.');
-    e.target.reset();
+    const form = e.target;
+    
+    fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            alert('Thank you! We will respond within 24 hours.');
+            form.reset();
+        } else {
+            alert('Oops! There was a problem. Please try again or call us directly.');
+        }
+    }).catch(error => {
+        alert('Oops! There was a problem. Please try again or call us directly.');
+    });
 }
 
 function submitQuoteRequest(e) {
     e.preventDefault();
-    alert('Quote request received! We will contact you shortly.');
-    closeQuoteModal();
+    const form = e.target;
+    
+    fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            alert('Quote request received! We will contact you shortly.');
+            closeQuoteModal();
+            form.reset();
+        } else {
+            alert('Oops! There was a problem. Please try again.');
+        }
+    }).catch(error => {
+        alert('Oops! There was a problem. Please try again.');
+    });
 }
 
 function subscribeNewsletter(e) {
