@@ -30,8 +30,7 @@ const projectsData = [
 const teamData = [
     { 
         name: "Daires Semwayo", 
-        title: "Managing Director", 
-        shares: "25% Shareholder", 
+        title: "Managing Director",  
         experience: "25+ years executive experience in insurance industry", 
         education: "", 
         responsibilities: "Driving innovative construction solutions, expanding Nylex's global footprint with partnerships in Turkey, Dubai, China, South Africa, Mauritius, and the UK",
@@ -40,7 +39,6 @@ const teamData = [
     { 
         name: "Comfort Semwayo", 
         title: "General Manager", 
-        shares: "25% Shareholder", 
         experience: "20+ years experience in construction industry", 
         education: "", 
         responsibilities: "Masterfully orchestrates construction nuances, transforming blueprints into realities. Expertise in building design, structural integrity, and project management",
@@ -49,7 +47,6 @@ const teamData = [
     { 
         name: "Chantelle Kwaramba", 
         title: "Finance Director", 
-        shares: "25% Shareholder", 
         experience: "Law graduate from University of Essex", 
         education: "LLB Law, University of Essex", 
         responsibilities: "Project budget handling, cash flow forecasting, internal audits, financial reporting, contractual and risk management matters",
@@ -58,7 +55,6 @@ const teamData = [
     { 
         name: "Patrick Matura", 
         title: "Operations Director", 
-        shares: "25% Shareholder", 
         experience: "14+ years experience across mining, education, accounting, and business development", 
         education: "BA (Hons) Accounting and Finance, University of East London, UK", 
         responsibilities: "Oversees day-to-day management of diverse projects across multiple countries including Malaysia, China, and Zimbabwe",
@@ -240,7 +236,6 @@ function openTeamModal(index) {
             </div>
             <h2 style="font-size:1.5rem; font-weight:700;">${member.name}</h2>
             <p style="color:var(--gold); font-weight:600;">${member.title}</p>
-            <p style="color:#6b7280; font-size:0.875rem;">${member.shares}</p>
         </div>
         <div style="border-top:1px solid #e5e7eb; padding-top:1rem;">
             <p style="margin-bottom:0.75rem;"><strong>📋 Experience:</strong><br>${member.experience}</p>
